@@ -8,20 +8,20 @@ export interface StatusBadgeProps {
 
 export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, size = 'md' }) => {
   const statusStyles: Record<string, string> = {
-    RECEIVED: 'bg-slate-100 text-slate-800 border-slate-300',
-    ANALYZING: 'bg-amber-50 text-amber-800 border-amber-300 animate-pulse',
-    LOCATION_PENDING: 'bg-orange-50 text-orange-800 border-orange-300',
-    LOCATION_CONFIRMED: 'bg-blue-50 text-blue-800 border-blue-300',
-    DISPATCHING: 'bg-indigo-50 text-indigo-800 border-indigo-300',
-    RESPONDER_SEARCH: 'bg-purple-50 text-purple-800 border-purple-300',
-    RESPONDER_ASSIGNED: 'bg-cyan-50 text-cyan-800 border-cyan-300',
-    RESPONDER_EN_ROUTE: 'bg-teal-50 text-teal-800 border-teal-300',
-    RESPONDER_ARRIVED: 'bg-emerald-50 text-emerald-800 border-emerald-300',
-    FIRST_AID_ACTIVE: 'bg-green-50 text-green-800 border-green-300',
-    AMBULANCE_ARRIVED: 'bg-emerald-100 text-emerald-900 border-emerald-400',
-    TRANSFERRED: 'bg-sky-50 text-sky-800 border-sky-300',
-    COMPLETED: 'bg-slate-200 text-slate-700 border-slate-400',
-    CANCELLED: 'bg-red-50 text-red-800 border-red-300'
+    RECEIVED: 'bg-[#1f2937] text-slate-300 border-[#374151]',
+    ANALYZING: 'bg-amber-500/10 text-amber-400 border-amber-500/30 animate-pulse',
+    LOCATION_PENDING: 'bg-orange-500/10 text-orange-400 border-orange-500/30',
+    LOCATION_CONFIRMED: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
+    DISPATCHING: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30',
+    RESPONDER_SEARCH: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
+    RESPONDER_ASSIGNED: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30',
+    RESPONDER_EN_ROUTE: 'bg-teal-500/10 text-teal-400 border-teal-500/30',
+    RESPONDER_ARRIVED: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+    FIRST_AID_ACTIVE: 'bg-green-500/10 text-green-400 border-green-500/30',
+    AMBULANCE_ARRIVED: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    TRANSFERRED: 'bg-sky-500/10 text-sky-400 border-sky-500/30',
+    COMPLETED: 'bg-[#1f2937] text-slate-400 border-[#374151]',
+    CANCELLED: 'bg-red-500/10 text-red-400 border-red-500/30'
   };
 
   const sizeClasses = {
@@ -29,7 +29,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, size = 'md' })
     md: 'px-2.5 py-1 text-xs'
   };
 
-  const style = statusStyles[status] || 'bg-slate-100 text-slate-800 border-slate-200';
+  const style = statusStyles[status] || 'bg-[#1f2937] text-slate-300 border-[#374151]';
 
   return (
     <span

@@ -47,13 +47,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col justify-between font-sans max-w-md mx-auto border-x border-slate-800">
+    <div className="min-h-screen bg-[#0a0e17] text-white flex flex-col font-sans max-w-md mx-auto border-x border-[#1f2937]">
       {/* Top Mobile Bar */}
-      <header className="h-14 bg-slate-950 border-b border-slate-800 px-4 flex items-center justify-between sticky top-0 z-50">
+      <header className="h-16 bg-[#111827] border-b border-[#1f2937] px-4 flex items-center justify-between sticky top-0 z-50">
         <ResQLogo size="sm" />
-        <span className="text-[10px] font-extrabold bg-red-950 text-red-400 border border-red-800 px-2 py-0.5 rounded">
-          RESPONDER MOBILE
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Responder</span>
+        </div>
       </header>
 
       {/* Screen Views */}
@@ -81,38 +82,38 @@ export default function App() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="h-16 bg-slate-950 border-t border-slate-800 grid grid-cols-3 fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50 text-xs">
+      <nav className="h-16 bg-[#111827] border-t border-[#1f2937] grid grid-cols-3 fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50 text-xs">
         <button
           onClick={() => setCurrentTab('nearby')}
-          className={`flex flex-col items-center justify-center font-bold ${
-            currentTab === 'nearby' ? 'text-[#E63946]' : 'text-slate-400'
+          className={`flex flex-col items-center justify-center font-bold transition-colors ${
+            currentTab === 'nearby' ? 'text-red-500' : 'text-slate-400 hover:text-slate-300'
           }`}
         >
-          <span>🚨</span>
-          <span className="text-[10px]">Nearby</span>
+          <span className="text-lg mb-1">🚨</span>
+          <span className="text-[10px] uppercase tracking-wider">Nearby</span>
         </button>
 
         <button
           onClick={() => setCurrentTab('active')}
           disabled={!activeIncident}
-          className={`flex flex-col items-center justify-center font-bold ${
+          className={`flex flex-col items-center justify-center font-bold transition-colors ${
             currentTab === 'active' || currentTab === 'guidance'
-              ? 'text-[#E63946]'
+              ? 'text-red-500'
               : 'text-slate-400 opacity-50'
           }`}
         >
-          <span>📍</span>
-          <span className="text-[10px]">Active</span>
+          <span className="text-lg mb-1">📍</span>
+          <span className="text-[10px] uppercase tracking-wider">Active</span>
         </button>
 
         <button
           onClick={() => setCurrentTab('rewards')}
-          className={`flex flex-col items-center justify-center font-bold ${
-            currentTab === 'rewards' ? 'text-[#E63946]' : 'text-slate-400'
+          className={`flex flex-col items-center justify-center font-bold transition-colors ${
+            currentTab === 'rewards' ? 'text-red-500' : 'text-slate-400 hover:text-slate-300'
           }`}
         >
-          <span>🏆</span>
-          <span className="text-[10px]">Rewards</span>
+          <span className="text-lg mb-1">🏆</span>
+          <span className="text-[10px] uppercase tracking-wider">Rewards</span>
         </button>
       </nav>
     </div>

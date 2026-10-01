@@ -18,20 +18,20 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center font-bold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0a0e17] disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variants = {
-    primary: 'bg-[#E63946] text-white hover:bg-[#D62828] focus:ring-[#E63946]',
-    secondary: 'bg-[#1D3557] text-white hover:bg-[#15263F] focus:ring-[#1D3557]',
-    outline: 'border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 focus:ring-slate-400',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-    success: 'bg-[#2A9D8F] text-white hover:bg-[#218074] focus:ring-[#2A9D8F]'
+    primary: 'bg-red-600 text-white hover:bg-red-700 active:scale-95 focus:ring-red-500',
+    secondary: 'bg-[#1f2937] text-white hover:bg-[#374151] active:scale-95 focus:ring-[#374151]',
+    outline: 'border border-[#374151] text-slate-300 bg-transparent hover:bg-[#1f2937] hover:text-white active:scale-95 focus:ring-[#374151]',
+    danger: 'bg-red-600 text-white hover:bg-red-700 active:scale-95 focus:ring-red-500',
+    success: 'bg-emerald-600 text-white hover:bg-emerald-700 active:scale-95 focus:ring-emerald-500'
   };
 
   const sizes = {
     sm: 'px-3 py-1.5 text-xs',
     md: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base font-semibold'
+    lg: 'px-6 py-3 text-base'
   };
 
   return (
