@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IncidentExtraction",
+  "type": "object",
+  "properties": {
+    "emergencyType": {
+      "type": "object",
+      "properties": {
+        "value": { "type": "string" },
+        "confidence": { "type": "number" }
+      },
+      "required": ["value", "confidence"]
+    },
+    "severity": {
+      "type": "object",
+      "properties": {
+        "value": { "type": "string" },
+        "confidence": { "type": "number" }
+      },
+      "required": ["value", "confidence"]
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "confidence": { "type": "number" }
+      },
+      "required": ["text", "confidence"]
+    },
+    "requiredSkills": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["emergencyType", "severity", "location", "requiredSkills"]
+}

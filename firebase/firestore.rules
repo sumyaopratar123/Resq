@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function hasRole(role) {
+      return isAuthenticated() && 
+        (request.auth.token.role == role || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role);
+    }
+
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) || hasRole('admin');
+    }
+
+    match /responders/{responderId} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(responderId) || hasRole('admin');
+    }
+
+    match /incidents/{incidentId} {
+      allow read: if isAuthenticated();
+      allow create, update: if isAuthenticated();
+      allow delete: if hasRole('admin');
+      
+      match /events/{eventId} {
+        allow read, write: if isAuthenticated();
+      }
+      
+      match /transcript/{segmentId} {
+        allow read: if isAuthenticated();
+        allow write: if hasRole('dispatcher') || hasRole('admin');
+      }
+    }
+
+    match /calls/{callId} {
+      allow read, write: if hasRole('dispatcher') || hasRole('admin');
+    }
+
+    match /rewards/{userId} {
+      allow read: if isAuthenticated();
+      // Points ledger transactions must be written server-side
+      allow write: if hasRole('admin');
+      
+      match /transactions/{txId} {
+        allow read: if isOwner(userId) || hasRole('admin');
+        allow write: if hasRole('admin');
+      }
+    }
+
+    match /hospitals/{hospitalId} {
+      allow read: if isAuthenticated();
+      allow write: if hasRole('admin');
+    }
+  }
+}

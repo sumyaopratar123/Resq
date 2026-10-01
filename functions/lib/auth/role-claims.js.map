@@ -1,0 +1,1 @@
+{"version":3,"file":"role-claims.js","sourceRoot":"","sources":["../../src/auth/role-claims.ts"],"names":[],"mappings":";;;AAAA,wCAAwC;AAEjC,MAAM,gBAAgB,GAAG,KAAK,EAAE,GAAW,EAAE,IAAY,EAAiB,EAAE;IACjF,MAAM,KAAK,CAAC,IAAI,EAAE,CAAC,mBAAmB,CAAC,GAAG,EAAE,EAAE,IAAI,EAAE,CAAC,CAAC;AACxD,CAAC,CAAC;AAFW,QAAA,gBAAgB,oBAE3B"}

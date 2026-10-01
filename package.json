@@ -1,0 +1,18 @@
+{
+  "name": "resq-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "resQ - Call-First Emergency Response Platform Monorepo",
+  "packageManager": "pnpm@11.10.0",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "turbo": "^2.4.0",
+    "typescript": "^5.7.0"
+  }
+}
