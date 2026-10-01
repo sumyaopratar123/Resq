@@ -44,7 +44,23 @@ def process_call(req: CallProcessRequest):
     }
 
 @router.post("/transcribe")
-def transcribe_audio(file: UploadFile = File(...)):
-    # Save file temporarily & transcribe
-    res = stt_service.transcribe_audio_file("temp_file")
-    return res
+async def transcribe_audio(file: UploadFile = File(...)):
+    import tempfile
+    import os
+
+    try:
+        suffix = os.path.splitext(file.filename or "")[1] or ".mp3"
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            content = await file.read()
+            tmp.write(content)
+            tmp_path = tmp.name
+
+        res = stt_service.transcribe_audio_file(tmp_path)
+
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+
+        return res
+    except Exception as e:
+        return stt_service.transcribe_audio_file("temp_file")
+
